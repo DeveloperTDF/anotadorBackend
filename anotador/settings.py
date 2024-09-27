@@ -25,7 +25,18 @@ SECRET_KEY = 'django-insecure-m+iptco)rc0x&ndt_jfm_=5#f-=c&1)gecimv_rr)-6hf%c__8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    
+]
+
+# acordarse de agregar las direcciones
+CORS_ALLOWED_ORIGINS = (
+    
+    "http://localhost:4200",
+    "http://127.0.0.1:8000",
+    "http://localhost:8100",
+)
+
 
 
 # Application definition
@@ -37,7 +48,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'notas'
+    'notas',
+    'rest_framework',
+    'corsheaders',
+    # instalado por mi
 ]
 
 MIDDLEWARE = [
@@ -48,6 +62,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # instalado por mi para que funcione y no bloquee el acceso con cors
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'anotador.urls'

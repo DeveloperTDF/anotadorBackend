@@ -7,3 +7,6 @@ class Nota (models.Model):
     temario =   models.CharField(max_length=15)
     titulo  =   models.CharField(max_length=15)
     apunte  =   models.CharField(max_length=100)
+
+    def __str__(self):
+        return str(self.titulo)
